@@ -20,6 +20,6 @@ server.on( 'connection', socket => {
     });
 
     socket.on( 'close', () => {
-        console.log( "A user has disconnected" )
+        server.brodcast( "A user has disconnected" )
     })
 })
