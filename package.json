@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "dependencies": {
         "express": "^4.16.3",
+        "random-username-generator": "^1.0.4",
         "ws": "^5.1.1"
     }
 }
