@@ -3,8 +3,11 @@
     display: flex;
     align-items: flex-end;
 }
-
-/* Sticky footer */
+#chat {
+    padding-bottom: 15px;
+    font-size: .8em;
+    line-height: 2;
+}
 footer {
     position: absolute;
     bottom: 0;
