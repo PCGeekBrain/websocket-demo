@@ -1,9 +1,18 @@
 {
     "name": "websockets-demo",
     "version": "0.0.1",
+    "main": "app/app.js",
     "dependencies": {
         "express": "^4.16.3",
         "random-username-generator": "^1.0.4",
         "ws": "^5.1.1"
+    },
+    "scripts": {
+        "start": "electron .",
+        "package-win": "electron-packager . websockets-demo --overwrite --platform=win32 --icon=app/assets/icons/win/icon.ico"
+    },
+    "devDependencies": {
+        "electron": "^4.0.0",
+        "electron-packager": "^13.0.1"
     }
 }
