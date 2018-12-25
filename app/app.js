@@ -1,17 +1,25 @@
-const { app, BrowserWindow } = require( 'electron' );
+const { app, BrowserWindow, Menu } = require( 'electron' );
 
-require('../client/server');
-require('../server/server');
+const template = require( './menu' );
+
+const express = require('../client/server');
+const wsserver = require('../server/server');
 
 // define the window in the global scope to prevent garbage collection
 let win;
 
+// const menu = Menu.buildFromTemplate(template);
+// Menu.setApplicationMenu(menu);
+
 function createWindow() {
     // create a browser window
-    win = new BrowserWindow({ width: 800, height: 600 })
+    win = new BrowserWindow({ width: 800, height: 600, autoHideMenuBar: true });
 
     // load the client side app
-    win.loadURL( 'http://127.0.0.1:3000' )
+    win.loadFile( __dirname + '/../client/index.html' );
+
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
 
     // when the window closes, garbage collect the old window
     win.on( 'closed', () => { win = null } );
@@ -23,7 +31,9 @@ app.on( 'ready', createWindow );
 // do not quit on MacOS
 app.on( 'window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        app.quit()
+        app.quit();
+        wsserver.close();
+        express.close();
     }
 })
 

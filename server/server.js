@@ -22,4 +22,6 @@ server.on( 'connection', socket => {
     socket.on( 'close', () => {
         server.brodcast( "A user has disconnected" )
     })
-})
+});
+
+module.exports = server;

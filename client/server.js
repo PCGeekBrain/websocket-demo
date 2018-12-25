@@ -11,6 +11,8 @@ app.get( '*', ( req, res ) => {
     res.sendFile( path.join( __dirname + "/index.html" ) );
 });
 
-app.listen( PORT, () => {
+const server = app.listen( PORT, () => {
     console.log( `Serving index.html on http://localhost:${PORT}` );
-})
+});
+
+module.exports = server;
