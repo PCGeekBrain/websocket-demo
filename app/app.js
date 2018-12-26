@@ -16,7 +16,7 @@ function createWindow() {
     win = new BrowserWindow({ width: 800, height: 600, autoHideMenuBar: true });
 
     // load the client side app
-    win.loadFile( __dirname + '/../client/index.html' );
+    win.loadFile( 'client/index.html' );
 
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
